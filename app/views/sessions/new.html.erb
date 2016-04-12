@@ -1,0 +1,7 @@
+<h1>Login</h1>
+
+<%= form_for(:session, url: login_path) do |f| %>
+  <%= f.text_field :username, placeholder: "username" %>
+  <%= f.text_field :password, placeholder: "password" %>
+  <%= f.submit "click to login" %>
+<% end %>

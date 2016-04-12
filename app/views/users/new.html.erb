@@ -1,0 +1,8 @@
+<h1>Create an account</h1>
+<%= form_for(@user) do |f| %>
+  <%= f.text_field :name, placeholder: "name" %>
+  <%= f.text_field :username, placeholder: "username" %>
+  <%= f.password_field :password, placeholder: "password" %>
+  <%= f.password_field :password_confirmation, placeholder: "password confirmation" %>
+  <%= f.submit %>
+<% end %>
