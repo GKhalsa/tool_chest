@@ -6,18 +6,16 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
+<%= link_to "Logout", logout_path, method: :delete %>
 <body>
 <% flash.each do |type, message| %>
   <div><%= message %></div>
 <% end %>
 <%= yield %>
 
-  <p>
-    <strong>Newest tool:</strong> <%= most_recent_tool %>
-  </p>
 
   <p>
-  <strong>Current Sessions Tool Summary:</strong> <%= current_tool_summary %>
+  <strong>Your Most Recent Tool Add On:</strong> 
 </p>
 
 </body>

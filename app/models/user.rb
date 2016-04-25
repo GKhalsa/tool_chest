@@ -3,4 +3,6 @@ class User < ActiveRecord::Base
   has_many :tools
   validates :name, presence: true
   validates :username, presence: true
+
+  enum role: %w(default admin)
 end

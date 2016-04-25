@@ -1,0 +1,7 @@
+<h1>Your Tools</h1>
+
+<% @categories.each do |category| %>
+  <% category.tools.each do |tool| %>
+    <%= "#{category.name} - #{tool.name}" %><br/> 
+  <% end %>
+<% end %>

@@ -29,6 +29,7 @@ gem 'bcrypt'
 
 # Use Unicorn as the app server
 gem 'unicorn'
+gem 'twilio-ruby'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -40,6 +41,7 @@ group :development, :test do
   gem 'launchy'
   gem 'rspec-rails'
   gem 'pry-rails'
+  gem 'mocha'
 end
 
 group :development do

@@ -1,14 +1,39 @@
 class ApplicationController < ActionController::Base
-  helper_method :most_recent_tool, :current_tool_summary
+  helper_method :most_recent_tool, :current_tool_summary, :current_user
   protect_from_forgery with: :exception
 
-  def most_recent_tool
-    id = session[:most_recent_tool_id]
-    if Tool.all.empty?
-      "No Tools in System"
-    else
-      Tool.find(id).name
-    end
+  def current_user
+    @user ||= User.find(session[:user_id]) if session[:user_id]
+  end
+
+  def send_message(tool)
+    account_sid = ""
+    auth_token  = ""
+
+    client = Twilio::REST::Client.new(account_sid, auth_token)
+    from   = "+"
+    data   = {
+      :from => from,
+      :to => "+1#{tool.number}", # format of this number needs to be "+1" at the beginning of the area code and phone number
+      :body => "You just created #{tool.quantity} #{tool.name}(s)",
+    }
+
+    client.account.messages.create(data)
+  end
+
+  def user_message(user)
+    account_sid = ""
+    auth_token  = ""
+
+    client = Twilio::REST::Client.new(account_sid, auth_token)
+    from   = "" # Your Twilio number
+    data   = {
+      :from => from,
+      :to => "+1#{user.number}", # format of this number needs to be "+1" at the beginning of the area code and phone number
+      :body => "Your security access code is 3498",
+    }
+
+    client.account.messages.create(data)
   end
 
   def current_tool_summary

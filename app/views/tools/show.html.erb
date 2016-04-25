@@ -1,5 +1,5 @@
-<%= link_to "Edit", edit_tool_path(@tool.id) %>
-<%= link_to "Delete", tool_path(@tool.id), method: :delete %>
+<%= link_to "Edit", edit_user_tool_path(@user, @tool) %>
+<%= link_to "Delete", user_tool_path(@user, @tool), method: :delete %>
 
 <div class="tool_info">
   <h1> <%= @tool.name %>  - <%= @tool.quantity %></h1>

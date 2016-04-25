@@ -1,0 +1,6 @@
+<h1>Welcome <%= @user.name %></h1>
+
+<%= link_to "Create a Tool", new_user_tool_path(@user) %>
+<%= link_to "Your Tools", user_tools_path(@user) %>
+<%= link_to "Edit", edit_user_path(@user) %>
+<%= link_to "categories", user_categories_path(@user) %>
